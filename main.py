@@ -47,12 +47,12 @@ class ExerciseApp:
         self.main = tk.Frame(self.window, bg=self.APP_BG)
         self.main.pack(fill=tk.BOTH, expand=True)
 
-        self.video_area = tk.Frame(self.main, bg=self.APP_BG, padx=28, pady=24)
-        self.video_area.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-
         self.sidebar = tk.Frame(self.main, width=self.SIDEBAR_WIDTH, bg=self.PANEL_BG, padx=22, pady=24)
         self.sidebar.pack(side=tk.RIGHT, fill=tk.Y)
         self.sidebar.pack_propagate(False)
+
+        self.video_area = tk.Frame(self.main, bg=self.APP_BG, padx=28, pady=24)
+        self.video_area.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
         self.build_video_panel()
         self.build_sidebar()
