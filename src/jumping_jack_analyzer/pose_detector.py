@@ -24,7 +24,8 @@ except ImportError:
     vision = None
     BaseOptions = None
 
-MODEL_PATH = Path(__file__).with_name("pose_landmarker_lite.task")
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+MODEL_PATH = PROJECT_ROOT / "assets" / "models" / "pose_landmarker_lite.task"
 
 class PoseDetector:
     def __init__(self, mode=False, smooth=True, detectionCon=0.5, trackCon=0.5):
@@ -46,8 +47,8 @@ class PoseDetector:
             self.api = "tasks"
             if not MODEL_PATH.exists():
                 raise FileNotFoundError(
-                    f"Missing MediaPipe pose model: {MODEL_PATH.name}. "
-                    "Download pose_landmarker_lite.task into this project folder."
+                    f"Missing MediaPipe pose model: {MODEL_PATH}. "
+                    "Download pose_landmarker_lite.task into assets/models/."
                 )
             options = vision.PoseLandmarkerOptions(
                 base_options=BaseOptions(model_asset_path=str(MODEL_PATH)),

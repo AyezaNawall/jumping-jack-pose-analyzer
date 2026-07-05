@@ -9,7 +9,7 @@
 
 ## 📸 GUI Screenshot
 
-![Jumping Jack Analyzer GUI](screenshots/gui-dashboard.png)
+![Jumping Jack Analyzer GUI](docs/images/gui-dashboard.png)
 
 ## ✨ Features
 
@@ -32,19 +32,27 @@
 | MediaPipe | Pose landmark detection |
 | Pillow | Displaying video frames inside Tkinter |
 
-## 📂 Project Structure
+## 📂 Professional Project Structure
 
 ```text
 jumping-jack-pose-analyzer/
-|-- main.py                     # Main Tkinter GUI application
-|-- oop.py                      # PoseDetector class and helper methods
-|-- pose_landmarker_lite.task   # MediaPipe pose model
-|-- 1.mp4                       # Sample exercise video
-|-- requirements.txt            # Python dependencies
-|-- screenshots/
-|   `-- gui-dashboard.png       # README GUI screenshot
-|-- .gitignore
-`-- README.md
+|-- main.py                                # Lightweight app launcher
+|-- requirements.txt                       # Python dependencies
+|-- README.md                              # Project documentation
+|-- assets/
+|   |-- models/
+|   |   `-- pose_landmarker_lite.task      # MediaPipe pose model
+|   `-- videos/
+|       `-- sample_jumping_jacks.mp4       # Sample exercise video
+|-- docs/
+|   `-- images/
+|       `-- gui-dashboard.png              # README screenshot
+`-- src/
+    `-- jumping_jack_analyzer/
+        |-- __init__.py
+        |-- __main__.py
+        |-- app.py                         # Tkinter GUI and app workflow
+        `-- pose_detector.py               # Pose detection helper class
 ```
 
 ## 🚀 Getting Started
@@ -80,12 +88,6 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Or install them manually:
-
-```bash
-pip install opencv-python pillow mediapipe
-```
-
 ### 4. Run the application
 
 ```bash
@@ -111,7 +113,8 @@ The app reads each video frame using OpenCV, sends it to MediaPipe for pose land
 
 ## 📌 Notes
 
-- The file `pose_landmarker_lite.task` is required for the newer MediaPipe Tasks API.
+- The file `assets/models/pose_landmarker_lite.task` is required for the newer MediaPipe Tasks API.
+- The sample video is stored at `assets/videos/sample_jumping_jacks.mp4`.
 - For best results, use a full-body video where shoulders, wrists, hips, and ankles are visible.
 - Webcam access must be allowed by your operating system.
 
